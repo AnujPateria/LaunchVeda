@@ -5,6 +5,13 @@ The app combines launch timelines, rocket anatomy, and mission stages to simplif
 
 ---
 
+<p align="center">
+  <img src="images/Home" width="250">
+  <img src="images/Explore" width="250">
+  <img src="images/Launch" width="250">
+</p>
+
+
 ## 🌌 Problem
 
 Understanding rocket launches can be difficult for beginners because information is often scattered across multiple sources such as technical documents, videos, and articles.
