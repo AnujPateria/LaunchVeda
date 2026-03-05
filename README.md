@@ -6,9 +6,9 @@ The app combines launch timelines, rocket anatomy, and mission stages to simplif
 ---
 
 <p align="center">
-  <img src="images/Home" width="250">
-  <img src="images/Explore" width="250">
-  <img src="images/Launch" width="250">
+  <img src="images/Home.jpeg" width="250">
+  <img src="images/Explore.jpeg" width="250">
+  <img src="images/Launch.jpeg" width="250">
 </p>
 
 
