@@ -1,0 +1,69 @@
+import Foundation
+import CoreGraphics
+
+// a sub-part inside a main rocket anatomy section
+struct AnatomySubPart: Identifiable {
+    let id = UUID()
+    let name: String
+    let systemType: String // e.g., "propulsion", "avionics", "structural"
+    let detailText: String
+}
+
+// a main section of the rocket anatomy
+struct AnatomySection: Identifiable {
+    let id = UUID()
+    let name: String
+    let headlineText: String
+    let description: String
+    let relativeYPosition: CGFloat
+    let subParts: [AnatomySubPart]
+}
+
+struct RocketAnatomyData {
+    static let standardDetailedRocket: [AnatomySection] = [
+        AnatomySection(
+            name: "Payload Fairing",
+            headlineText: "Protecting the Precious Cargo",
+            description: "The payload fairing is the nose cone used to protect the spacecraft payload against the impact of dynamic pressure and aerodynamic heating during launch through an atmosphere. It is jettisoned once the rocket reaches the vacuum of space.",
+            relativeYPosition: 0.15,
+            subParts: [
+                AnatomySubPart(name: "Acoustic Blankets", systemType: "Protection", detailText: "Sound-absorbing blankets lining the inside of the fairing to protect delicate satellites from intense acoustic vibrations during liftoff."),
+                AnatomySubPart(name: "Pneumatic Pushers", systemType: "Deployment", detailText: "High-pressure gas systems that forcefully push the two halves of the fairing apart once the atmosphere gets thin enough to no longer pose a threat."),
+                AnatomySubPart(name: "Avionics Node", systemType: "Control", detailText: "Small computing block responsible for calculating the exact microsecond the fairing should separate, communicating with the main flight computer.")
+            ]
+        ),
+        AnatomySection(
+            name: "Second Stage",
+            headlineText: "Pushing to Final Orbit",
+            description: "The second stage takes over after the first stage is depleted and jettisoned. Operating mostly in the vacuum of space, its engine bells are much larger to maximize efficiency where there is no atmospheric pressure.",
+            relativeYPosition: 0.40,
+            subParts: [
+                AnatomySubPart(name: "Vacuum Engine", systemType: "Propulsion", detailText: "Contains a massive bell nozzle optimized entirely for operating in space, providing the precise thrust needed to insert the payload into the exact target orbit."),
+                AnatomySubPart(name: "Liquid Oxygen Tank", systemType: "Propellant", detailText: "Stores super-chilled liquid oxygen. Requires extreme insulation to keep the oxidizer from boiling off while coasting in the sunlight of space."),
+                AnatomySubPart(name: "Reaction Control System (RCS)", systemType: "Control", detailText: "Small thrusters dotted around the stage used to orient the rocket precisely before engine ignition or payload separation.")
+            ]
+        ),
+        AnatomySection(
+            name: "First Stage Core",
+            headlineText: "The Heavy Lifter",
+            description: "The massive first stage holds the bulk of the vehicle's fuel and oxidizer. Its primary job is to lift the entire assembly through the thickest part of the Earth's atmosphere, fighting maximum gravity.",
+            relativeYPosition: 0.65,
+            subParts: [
+                AnatomySubPart(name: "Grid Fins", systemType: "Aerodynamics", detailText: "Aerodynamic control surfaces that deploy upon descent. They steer the first stage as it plummets backwards through the atmosphere towards a landing pad."),
+                AnatomySubPart(name: "RP-1 Fuel Tank", systemType: "Propellant", detailText: "A massive, pressurized aluminum-lithium tank holding highly refined kerosene. This fuel burns extremely intensely when mixed with liquid oxygen."),
+                AnatomySubPart(name: "Interstage Ring", systemType: "Structural", detailText: "The reinforced collar connecting the first and second stages, housing the pneumatic pushers that shove the empty first stage away during staging.")
+            ]
+        ),
+        AnatomySection(
+            name: "Engine Section",
+            headlineText: "Controlled Explosion",
+            description: "The business end of the rocket. This section houses the primary booster engines that generate millions of pounds of thrust at sea level, lifting the enormous weight of the fully fueled rocket off the pad.",
+            relativeYPosition: 0.90,
+            subParts: [
+                AnatomySubPart(name: "Sea-Level Engines", systemType: "Propulsion", detailText: "A cluster of powerful turbopump-fed engines with smaller bells optimized for the high pressure of the lower atmosphere at sea level."),
+                AnatomySubPart(name: "Thrust Structure", systemType: "Structural", detailText: "The immensely strong framework that takes the millions of pounds of force generated by the engines and evenly distributes it up through the delicate fuel tanks."),
+                AnatomySubPart(name: "Turbopumps", systemType: "Mechanics", detailText: "High-speed centrifugal pumps that force hundreds of gallons of fuel and oxidizer into the combustion chamber every single second.")
+            ]
+        )
+    ]
+}
